@@ -81,6 +81,10 @@
                 font-size: 15px;
                 font-weight: 600;
                 margin-top: 13vh;
+
+                @include mobile{
+                    margin-top: 10px;
+                }
             }
         }
 

@@ -26,7 +26,7 @@ export default function Intro() {
           <h2>Hi There, I'm</h2>
           <h1>Prateek Yadav</h1>
           <h3>. <span ref={ textRef }></span></h3>
-          <a href="assets/resume.pdf" download>Download CV</a>
+          <a href="assets/Resume.pdf" download>Download CV</a>
         </div>
         <a className="linkk" href="#portfolio">
           <img src="assets/down.png" alt="" />
