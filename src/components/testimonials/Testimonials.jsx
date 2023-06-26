@@ -4,15 +4,15 @@ export default function Testimonials() {
   const data = [
     {
       id: 1,
-      name: "Python Mentor",
-      title: "as Home Tutions",
+      name: "Full Stack Developer",
+      title: "at Embifi",
       img:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7e3ptfTfB3nPgnrSF9nFt1hlaL6axta_srQ&usqp=CAU",
-      icon: "assets/globe.png",
+        "https://i.tracxn.com/logo/company/embifi.in_Logo_f11aed95-4a39-4ab8-a572-8f84d350f240.jpg?height=120&width=120",
+      icon: "/assets/linkedin.png",
       desc:
-        "Worked as a mentor, given tutions for beginer students in Python, DSA. ",
-      link: "https://www.python.org",
-      wb: "https://www.python.org"
+        "Worked on React and Node with MongoDb. Designed Architecture for Loan Collection and Credit Rule Engine. Handled all DevOps tasks also. ",
+      link: "https://in.linkedin.com/company/embifi",
+      wb: "https://embifi.in/"
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export default function Testimonials() {
       title: "at Coding Blocks",
       img:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSskwe0XTRraSKilXCfbRPZAqX2zx0OA0C2xA&usqp=CAU",
-      icon: "assets/youtube.png",
+      icon: "/assets/youtube.png",
       desc:
         " Solving doubts and helping 50+ students enrolled in Data Structures and Algorithms course in offline as well as online mode. ",
       featured: true,
@@ -29,14 +29,14 @@ export default function Testimonials() {
     },
     {
       id: 3,
-      name: "Freelancer",
-      title: "at Fiverr",
+      name: "Web Developer Intern",
+      title: "at EnR Consultancy",
       img:
-        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/5c837aac7c42de1f9f125cff37ab2c70-1612076004546/fiverr-og-logo.png",
-      icon: "assets/twitter.png",
+        "https://engagenreap.com/wp-content/uploads/2023/02/cropped-enr.png",
+      icon: "/assets/twitter.png",
       desc:
-        "I have done many work on fiverr like Website Building, Bug Fixing etc.",
-      link: "https://twitter.com/fiverr",
+        " Developed various websites for startups. Worked on React, Django. Created design on client request. ",
+      link: "https://twitter.com/services_enr?lang=en",
       wb: "https://www.fiverr.com/"
     },
   ];
@@ -47,9 +47,9 @@ export default function Testimonials() {
         {data.map(d => (
           <div className={d.featured ? "card featured" : "card"}>
             <div className="top">
-            <a target="_blank" rel="noopener noreferrer" href={d.wb}><img src="assets/right-arrow.png" className="left" alt="" /></a>
+            <a target="_blank" rel="noopener noreferrer" href={d.wb}><img src={process.env.PUBLIC_URL + '/assets/right-arrow.png'} className="left" alt="" /></a>
               <img className="user" src={d.img} alt="" />
-              <a target="_blank" rel="noopener noreferrer" href={d.link}><img className="right" src={d.icon} alt="" /></a>
+              <a target="_blank" rel="noopener noreferrer" href={d.link}><img className="right" src={process.env.PUBLIC_URL + d.icon} alt="" /></a>
             </div>
             <div className="center">
               {d.desc}

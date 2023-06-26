@@ -10,7 +10,7 @@ export default function Intro() {
       showCursor: false, 
       backSpeed:  60,
       backDelay:  1500,
-      strings: ['Computer Science Engineer', 'Developer',  'Freelancer' ] ,
+      strings: ['Software Developer', 'Web Developer',  'DevOps Engineer' ] ,
     });
   }, []);
 
@@ -18,7 +18,7 @@ export default function Intro() {
     <div className="intro" id="intro">
       <div className="left">
         <div className="imageContainer">
-          <img src="assets/man.png" alt="" />
+          <img src={process.env.PUBLIC_URL + '/assets/man.png'} alt="" />
         </div>
       </div>
       <div className="right">
@@ -26,10 +26,10 @@ export default function Intro() {
           <h2>Hi There, I'm</h2>
           <h1>Prateek Yadav</h1>
           <h3>. <span ref={ textRef }></span></h3>
-          <a href="assets/Resume.pdf" download>Download CV</a>
+          <a href="/assets/Resume.pdf" download="Prateek_Yadav_CV.pdf">Download CV</a>
         </div>
         <a className="linkk" href="#portfolio">
-          <img src="assets/down.png" alt="" />
+          <img src={process.env.PUBLIC_URL + '/assets/down.png'} alt="" />
         </a>
       </div>
     </div>

@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a portfolio website built using [React](https://reactjs.org/) and [Yarn](https://yarnpkg.com/). It showcases my projects, skills, and experience to potential employers or clients.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before running the project, ensure you have the following installed on your machine:
 
-### `npm start`
+- [Node.js](https://nodejs.org/) (version 14 or later)
+- [Yarn](https://yarnpkg.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Follow these steps to get the portfolio website up and running:
 
-### `npm test`
+1. Clone the repository to your local machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ```git clone <repository_url>```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  ```cd portfolio-website```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+3. Install the project dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ```yarn install```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Start the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  ```yarn start```
+  
+      This will launch the website locally, and you can access
+        it in your web browser at http://localhost:3000.
 
-## Learn More
+## Customization
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To personalize the portfolio website, you can make the following modifications:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Update the content in the src/components directory to reflect your own projects, skills, and experience.
+Replace the default profile picture (public/assets/profile.jpg) with your own photo.
+Customize the styling by modifying the CSS files in the src/styles directory.
+Deployment
+To deploy the portfolio website to a hosting platform, you can use the following steps:
 
-### Code Splitting
+Build the optimized production-ready version:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  ```yarn build```
+    This will create a build folder containing the optimized static files.
 
-### Analyzing the Bundle Size
+Deploy the build folder to your hosting platform of choice. Some popular options include Netlify, Vercel, and GitHub Pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
+This project is licensed under the MIT License. Feel free to use it as a template for your own portfolio website.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Acknowledgements
 
-### Advanced Configuration
+The website was built with Create React App.
+Font Awesome was used for the icons.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contact
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you have any questions or suggestions, feel free to reach out to me at myselfraoo@gmail.com.

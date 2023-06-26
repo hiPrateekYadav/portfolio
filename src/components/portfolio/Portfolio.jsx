@@ -7,10 +7,11 @@ import {
   dsAlgoPortfolio,
   othersPortfolio,
   learningPortfolio,
+  devOpsPortfolio
 } from "../../data";
 
 export default function Portfolio() {
-  const [selected,setSelected] = useState("featured");
+  const [selected,setSelected] = useState("languages");
   const [data,setData] = useState([]);
 
   const list = [
@@ -26,13 +27,17 @@ export default function Portfolio() {
       id: "dsAlgo",
       title: "DS-Algo",
     },
+    // {
+    //   id: "learning",
+    //   title: "Learning",
+    // },
+    {
+      id: "devops",
+      title: "DevOps",
+    },
     {
       id: "others",
       title: "Others",
-    },
-    {
-      id: "learning",
-      title: "Learning",
     },
   ];
 
@@ -50,13 +55,17 @@ export default function Portfolio() {
       case "dsAlgo":
         setData(dsAlgoPortfolio);
         break;
+        
+      case "learning":
+        setData(learningPortfolio);
+        break;
+
+      case "devops":
+        setData(devOpsPortfolio);
+        break;
 
       case "others":
         setData(othersPortfolio);
-        break;
-
-      case "learning":
-        setData(learningPortfolio);
         break;
 
       default:
