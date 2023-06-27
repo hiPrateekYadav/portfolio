@@ -1,0 +1,43 @@
+# Node.js
+node_modules/
+package-lock.json
+
+# Yarn
+yarn-error.log
+
+# Compiled files
+dist/
+build/
+*.css
+*.js
+*.map
+
+# Logs
+logs/
+*.log
+
+# Dependency directories
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Editor directories and files
+/.vscode
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Miscellaneous
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Optional: Ignore `.env` files containing sensitive information
+# .env*
