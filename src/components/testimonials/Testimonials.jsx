@@ -42,7 +42,7 @@ export default function Testimonials() {
   ];
   return (
     <div className="testimonials" id="testimonials">
-      <h1>Work Experience. / Internships.</h1>
+      <h1>Work Experience / Internships</h1>
       <div className="container">
         {data.map(d => (
           <div className={d.featured ? "card featured" : "card"}>
