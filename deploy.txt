@@ -1,0 +1,6 @@
+npm run deploy   <= main command
+
+### link ###
+https://create-react-app.dev/docs/deployment
+
+npm install --save gh-pages   <= already done
