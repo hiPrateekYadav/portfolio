@@ -1,8 +1,9 @@
 {
-  "homepage": "https://hiPrateekYadav.github.io/portfolio",
+  "homepage": "./",
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@material-ui/core": "^4.12.3",
@@ -10,6 +11,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "electron-is-dev": "^2.0.0",
     "emailjs-com": "^3.2.0",
     "ityped": "^1.0.3",
     "node-sass": "^9.0.0",
@@ -24,7 +26,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/electron.js",
+    "preelectron-pack": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +50,11 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "gh-pages": "^3.2.3",
+    "wait-on": "^7.2.0"
   }
 }
