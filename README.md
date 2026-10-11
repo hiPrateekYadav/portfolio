@@ -1,66 +1,51 @@
-# Portfolio Website
+# Portfolio
 
-This is a portfolio website built using [React](https://reactjs.org/) and [Yarn](https://yarnpkg.com/). It showcases my projects, skills, and experience to potential employers or clients.
+A responsive portfolio built with Next.js 16, React 19, TypeScript, Tailwind CSS, and Framer Motion. Page content is loaded from published Google Sheets; contact form submissions are delivered through Telegram.
 
-## Prerequisites
+## Requirements
 
-Before running the project, ensure you have the following installed on your machine:
+- Node.js 20.9 or newer
+- npm
 
-- [Node.js](https://nodejs.org/) (version 14 or later)
-- [Yarn](https://yarnpkg.com/)
+## Setup
 
-## Getting Started
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-Follow these steps to get the portfolio website up and running:
+Add your Telegram bot token and chat ID to `.env.local` before testing the contact form. Never commit real credentials.
 
-1. Clone the repository to your local machine:
+## Commands
 
-  ```git clone <repository_url>```
+```bash
+npm run dev        # Start the development server
+npm run build      # Create a production build
+npm start          # Serve the production build
+npm run lint       # Run ESLint
+npm run typecheck  # Run TypeScript without emitting files
+```
 
+## Structure
 
-2. Navigate to the project directory:
+- `app/` — routes, root layout, global styles and the `/api/contact` route
+- `components/` — shared UI (`Header`, `Footer`, `CTASection`, …), `animations/` and `icons/`
+- `contexts/` — global loading state that hides the header and footer while a page loads
+- `hooks/` — `usePageData` (page data loading) and `useAudience` (recruiter vs client context)
+- `lib/` — Google Sheets fetching, content mappers and small helpers
+- `public/` — static images
 
-  ```cd portfolio-website```
+The default `/` route is the recruiter portfolio. The freelance client portfolio lives at `/client`, with its supporting pages at `/services`, `/work` and `/about`. `/blog` and `/contact` are shared, and keep the visitor's audience through the `?audience=` / `?source=` query and session storage.
 
+## Content
 
-3. Install the project dependencies:
+Page content comes from a published Google Spreadsheet. Tab GIDs are configured in `lib/googleSheets.ts` and the expected columns for each tab are defined by the mappers in `lib/sheetsMappers.ts`. After editing the spreadsheet, publish it again (File → Share → Publish to web).
 
-  ```yarn install```
+Sheet responses are cached for ten minutes in memory and browser local storage. Pass `{ forceRefresh: true }` to `fetchSheetDataByName` when an explicit refresh is required.
 
+Recruiter content uses the six `recruiter_*` tabs, and every one must contain data or the recruiter page stays on its loading screen. In list columns such as `bullets`, `technologies`, `tags` and `company_marquee`, separate items with semicolons.
 
-4. Start the development server:
+## Deployment
 
-  ```yarn start```
-  
-      This will launch the website locally, and you can access
-        it in your web browser at http://localhost:3000.
-
-## Customization
-
-To personalize the portfolio website, you can make the following modifications:
-
-Update the content in the src/components directory to reflect your own projects, skills, and experience.
-Replace the default profile picture (public/assets/profile.jpg) with your own photo.
-Customize the styling by modifying the CSS files in the src/styles directory.
-Deployment
-To deploy the portfolio website to a hosting platform, you can use the following steps:
-
-Build the optimized production-ready version:
-
-  ```yarn build```
-    This will create a build folder containing the optimized static files.
-
-Deploy the build folder to your hosting platform of choice. Some popular options include Netlify, Vercel, and GitHub Pages.
-
-## License
-
-This project is licensed under the MIT License. Feel free to use it as a template for your own portfolio website.
-
-## Acknowledgements
-
-The website was built with Create React App.
-Font Awesome was used for the icons.
-
-## Contact
-
-If you have any questions or suggestions, feel free to reach out to me at myselfraoo@gmail.com.
+Run `npm run build` in CI and provide `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` through the hosting provider's environment settings. The application can run on any platform that supports Next.js server routes.

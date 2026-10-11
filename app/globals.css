@@ -1,0 +1,77 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=gambetta@300,300-italic,400,400-italic&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=chillax@300,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  body {
+    @apply bg-dark text-primary antialiased;
+    font-family: 'Satoshi', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-light;
+  }
+
+  :focus-visible {
+    outline: 2px solid #DAC5A7;
+    outline-offset: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Logo carousel animation */
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.animate-scroll-logos {
+  animation: scroll-logos 30s linear infinite;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .animate-scroll-logos {
+    animation: scroll-logos 10s linear infinite;
+  }
+}
+
+.animate-scroll-logos:hover {
+  animation-play-state: paused;
+}
+
+/* CTA Banner scroll animation */
+@keyframes scroll-banner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-banner {
+  animation: scroll-banner 20s linear infinite;
+  will-change: transform;
+}
