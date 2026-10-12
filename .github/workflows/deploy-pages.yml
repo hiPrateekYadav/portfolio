@@ -40,6 +40,8 @@ jobs:
 
       - name: Build static site from Google Sheets
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /portfolio
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
