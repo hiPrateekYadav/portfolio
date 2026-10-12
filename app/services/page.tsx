@@ -47,7 +47,7 @@ export default function ServicesPage() {
           </FadeIn>
           <div className="relative w-full h-[300px] md:h-[500px] lg:h-[804px] overflow-hidden">
             <Image 
-              src="/images/services-hero.jpg" 
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/services-hero.jpg`}
               alt="Services Hero" 
               fill 
               className="object-contain"

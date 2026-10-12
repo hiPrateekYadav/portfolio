@@ -27,7 +27,7 @@ export default function AboutPage() {
           <div className="flex-1 flex items-start justify-center lg:justify-start">
             <div className="w-full max-w-[500px] lg:w-[650px] aspect-[520/590] lg:h-[520px] relative mix-blend-lighten lg:sticky lg:top-[130px] overflow-hidden">
               <Image
-                src="/images/hero-profile.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/hero-profile.png`}
                 alt={aboutContent.name}
                 fill
                 className="object-cover"

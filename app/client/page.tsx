@@ -116,7 +116,7 @@ export default function ClientHome() {
           className="absolute left-1/2 top-[80px] md:top-[100px] lg:top-[130px] w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] -translate-x-1/2 mix-blend-lighten opacity-80"
         >
           <Image
-            src="/images/hero-profile.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/hero-profile.png`}
             alt="Profile"
             fill
             className="object-cover"
@@ -409,7 +409,7 @@ export default function ClientHome() {
         {/* Background Profile Image */}
         <div className="absolute left-1/2 -translate-x-1/2 top-[50px] md:top-[80px] w-[280px] md:w-[500px] lg:w-[700px] h-[245px] md:h-[437px] lg:h-[612px] mix-blend-lighten opacity-80">
           <Image
-            src="/images/hero-profile.png"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/hero-profile.png`}
             alt="Profile"
             fill
             className="object-cover"

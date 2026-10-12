@@ -5,7 +5,16 @@ type Row = Record<string, unknown>
 
 function toString(val: unknown): string {
   if (val === undefined || val === null) return ''
-  return String(val)
+  const value = String(val)
+
+  // Next.js basePath does not automatically prefix files referenced from
+  // public/. Use the build-time base path for root-relative Sheet values.
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+  if (basePath && value.startsWith('/') && !value.startsWith('//') && !value.startsWith(`${basePath}/`)) {
+    return `${basePath}${value}`
+  }
+
+  return value
 }
 
 function toNumber(val: unknown): number | undefined {

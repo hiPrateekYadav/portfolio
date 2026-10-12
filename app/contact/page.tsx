@@ -71,7 +71,7 @@ export default function ContactPage() {
             {/* Left: Profile Image - Hidden on mobile, visible on laptop */}
             <div className="relative w-[500px] h-[566px] flex-shrink-0 mix-blend-lighten opacity-80 hidden lg:block">
               <Image
-                src="/images/hero-profile.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/hero-profile.png`}
                 alt="Profile"
                 fill
                 className="object-cover"

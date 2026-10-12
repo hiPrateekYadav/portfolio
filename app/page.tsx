@@ -112,7 +112,7 @@ export default function RecruiterHome() {
       {/* ==================== HERO SECTION ==================== */}
       <section ref={heroRef} className="relative h-[700px] md:h-[900px] lg:h-[1130px] w-full overflow-hidden flex flex-col items-center justify-end">
         <div className="absolute left-1/2 top-[80px] md:top-[100px] lg:top-[130px] w-[300px] h-[300px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] -translate-x-1/2 mix-blend-lighten opacity-80">
-          <Image src={profile.portrait || '/images/hero-profile.png'} alt={`${profile.name} portrait`} fill priority className="object-cover" unoptimized />
+          <Image src={profile.portrait || `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/hero-profile.png`} alt={`${profile.name} portrait`} fill priority className="object-cover" unoptimized />
         </div>
 
         <motion.div style={{ y: heroTextY }} className="relative z-10 flex flex-col items-center gap-6 md:gap-10 lg:gap-12 pb-[60px] md:pb-[90px] lg:pb-[117px] px-4">
