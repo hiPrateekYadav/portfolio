@@ -7,5 +7,5 @@ export function toDownloadUrl(value: string): string {
     return `https://drive.usercontent.google.com/download?id=${encodeURIComponent(driveMatch[1])}&export=download&confirm=t`
   }
 
-  return url || '/resume.pdf'
+  return url
 }

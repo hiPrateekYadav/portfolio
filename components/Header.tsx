@@ -17,7 +17,7 @@ const Header = () => {
   const pathname = usePathname();
   const audience = useAudience();
   const [openPath, setOpenPath] = useState<string | null>(null);
-  const [resumePath, setResumePath] = useState('/resume.pdf');
+  const [resumePath, setResumePath] = useState('');
   const { loading } = useLoading();
   // The mobile menu closes automatically when the route changes
   const isOpen = openPath === pathname;
@@ -85,7 +85,7 @@ const Header = () => {
           >
             Let&apos;s Talk
           </Link>
-          {recruiterHome && (
+          {recruiterHome && resumePath && (
             <a
               href={toDownloadUrl(resumePath)}
               download="Prateek-Yadav-Resume.pdf"
@@ -109,7 +109,7 @@ const Header = () => {
           >
             Let&apos;s Talk
           </Link>
-          {recruiterHome && (
+          {recruiterHome && resumePath && (
             <a
               href={toDownloadUrl(resumePath)}
               download="Prateek-Yadav-Resume.pdf"

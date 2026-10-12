@@ -22,7 +22,6 @@ Add your Telegram bot token and chat ID to `.env.local` before testing the conta
 ```bash
 npm run dev        # Start the development server
 npm run build      # Create a production build
-npm start          # Serve the production build
 npm run lint       # Run ESLint
 npm run typecheck  # Run TypeScript without emitting files
 ```
@@ -48,4 +47,6 @@ Recruiter content uses the six `recruiter_*` tabs, and every one must contain da
 
 ## Deployment
 
-Run `npm run build` in CI and provide `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` through the hosting provider's environment settings. The application can run on any platform that supports Next.js server routes.
+GitHub Actions builds and deploys the static export to GitHub Pages on every push to `main` and every 15 minutes so published Google Sheets changes are picked up automatically. The workflow is defined in `.github/workflows/deploy-pages.yml`.
+
+The Telegram-backed `/api/contact` route requires a Next.js server and is not available on static GitHub Pages. Use a server deployment or an external form endpoint if the contact form must submit from the Pages site.
