@@ -8,6 +8,7 @@ import { useAudience } from '@/hooks/useAudience';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const EMPTY_FORM = { name: '', email: '', message: '' };
+const CONTACT_FORM_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT;
 
 type Status = { type: 'success' | 'error'; message: string } | null;
 
@@ -46,12 +47,19 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setStatus(null);
     try {
-      const response = await fetch('/api/contact', {
+      if (!CONTACT_FORM_ENDPOINT) {
+        throw new Error('NEXT_PUBLIC_CONTACT_FORM_ENDPOINT is not configured');
+      }
+
+      // text/plain keeps this a CORS-simple request. Apps Script web apps do
+      // not expose configurable CORS headers, so the response is intentionally
+      // opaque while the POST is still delivered to doPost().
+      await fetch(CONTACT_FORM_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({ ...formData, source }),
       });
-      if (!response.ok) throw new Error(`Contact request failed with ${response.status}`);
       setStatus({ type: 'success', message: 'Thank you for your message! I will get back to you soon.' });
       setFormData(EMPTY_FORM);
     } catch (error) {

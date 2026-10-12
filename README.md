@@ -15,7 +15,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Add your Telegram bot token and chat ID to `.env.local` before testing the contact form. Never commit real credentials.
+Deploy `docs/contact-form-apps-script.gs` as a Google Apps Script web app, then set its `/exec` URL as `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` in `.env.local`. Store the Telegram bot token and chat ID in Apps Script Properties; never expose them as `NEXT_PUBLIC_*` values.
 
 ## Commands
 
@@ -28,7 +28,7 @@ npm run typecheck  # Run TypeScript without emitting files
 
 ## Structure
 
-- `app/` — routes, root layout, global styles and the `/api/contact` route
+- `app/` — routes, root layout and global styles
 - `components/` — shared UI (`Header`, `Footer`, `CTASection`, …), `animations/` and `icons/`
 - `contexts/` — global loading state that hides the header and footer while a page loads
 - `hooks/` — `usePageData` (page data loading) and `useAudience` (recruiter vs client context)
@@ -49,4 +49,4 @@ Recruiter content uses the six `recruiter_*` tabs, and every one must contain da
 
 GitHub Actions builds and deploys the static export to GitHub Pages on every push to `main` and every 15 minutes so published Google Sheets changes are picked up automatically. The workflow is defined in `.github/workflows/deploy-pages.yml`.
 
-The Telegram-backed `/api/contact` route requires a Next.js server and is not available on static GitHub Pages. Use a server deployment or an external form endpoint if the contact form must submit from the Pages site.
+The contact form uses the Google Apps Script source in `docs/contact-form-apps-script.gs`. GitHub Actions reads its deployed URL from the `CONTACT_FORM_ENDPOINT` repository variable. The same URL works in `.env.local`, so local development and GitHub Pages use identical submission behavior while Telegram credentials remain private in Apps Script Properties.

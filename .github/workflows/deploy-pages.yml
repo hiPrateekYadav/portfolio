@@ -42,6 +42,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /portfolio
+          NEXT_PUBLIC_CONTACT_FORM_ENDPOINT: ${{ vars.CONTACT_FORM_ENDPOINT }}
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
